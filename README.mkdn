@@ -36,6 +36,10 @@ Run:
 
 Deploy.
 
+### The Fix
+
+We understand that overriding the Hash class with the ActiveSupport::OrderedHash is pretty unorthodox, however in our testing we've yet to hit any problems with this change. You are safe to test this out in your existing deployments, however I strongly encourage doing a few deploys to staging before rolling it out to production, just to be extra safe.
+
 ### Going Forward
 
 Once we are confident that this change works the way we want, we will
