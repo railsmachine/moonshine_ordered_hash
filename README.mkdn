@@ -14,11 +14,19 @@ etc.
 
 ### Example
 
-One case that can occur is with the `config/gems.yml` file.
-Since this file is loaded into Moonshine from a YAML file,
-small "changes" in this file which do not actually alter the
-configuration of a system could cause Moonshine to re-install
-gems that are already present on the system.
+Let's say you were doing something like this in your `config/moonshine.yml`:
+
+    :hosts:
+      :127.0.0.1: localhost
+      :4.2.2.1: dns
+
+If you are generating a configuration file from this hash using a pattern like:
+
+    <% configuration[:hosts].each do |key, value| %>
+      <%= key %> = <%= value %>
+    <% end %>
+
+This file may be regenerated even though the configuration hasn't changed. This is due to Ruby 1.8's Hashes being unordered, meaning that YAML stanzas loaded into a Hash may change ordering at random.
 
 ### Installation
 
