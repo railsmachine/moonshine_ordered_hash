@@ -1,0 +1,21 @@
+## Moonshine Ordered Hash
+
+This plugin is for testing on a potential shadow\_puppet change.
+
+Currently shadow\_puppet uses Ruby 1.8's built-in Hash for resources.
+The downside to this is that Hash in Ruby 1.8 is inherently unordered.
+This can lead to scenarios where a Hash is "different" only because the
+ordering of keys differs.
+This behavior is undesirable as it can cause unnecessary restarts of services,
+etc.
+
+Once we are confident that this change works the way we want, we will
+evaluate making it the default in shadow\_puppet itself.
+
+### Installation
+
+Run:
+
+    script/plugin install git://github.com/railsmachine/moonshine_ordered_hash.git --force
+
+Deploy.
