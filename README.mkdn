@@ -1,6 +1,9 @@
 ## Moonshine Ordered Hash
 
-This plugin is for testing on a potential shadow\_puppet change.
+Some Moonshine users may have noticed unnecessary restarts of
+services or re-configuration of various resources.
+
+### The Problem
 
 Currently shadow\_puppet uses Ruby 1.8's built-in Hash for resources.
 The downside to this is that Hash in Ruby 1.8 is inherently unordered.
@@ -9,8 +12,13 @@ ordering of keys differs.
 This behavior is undesirable as it can cause unnecessary restarts of services,
 etc.
 
-Once we are confident that this change works the way we want, we will
-evaluate making it the default in shadow\_puppet itself.
+### Example
+
+One case that can occur is with the `config/gems.yml` file.
+Since this file is loaded into Moonshine from a YAML file,
+small "changes" in this file which do not actually alter the
+configuration of a system could cause Moonshine to re-install
+gems that are already present on the system.
 
 ### Installation
 
@@ -19,3 +27,8 @@ Run:
     script/plugin install git://github.com/railsmachine/moonshine_ordered_hash.git --force
 
 Deploy.
+
+### Going Forward
+
+Once we are confident that this change works the way we want, we will
+evaluate making it the default in shadow\_puppet itself.
