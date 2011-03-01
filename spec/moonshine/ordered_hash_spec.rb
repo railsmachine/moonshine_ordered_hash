@@ -33,5 +33,24 @@ describe 'ordered hashes' do
       end
       h.should == @manifest.configuration
     end
+
+    it "should still be the same string too" do
+      h = Hash.new
+      @manifest.configuration.each do |key, value|
+        h[key] = value
+      end
+
+      h_str = ""
+      h.each do |key, value|
+        h_str << "#{key} = #{value}\n"
+      end
+
+      man_str = ""
+      @manifest.configuration.each do |key, value|
+        man_str << "#{key} = #{value}\n"
+      end
+
+      h_str.should == man_str
+    end
   end
 end
