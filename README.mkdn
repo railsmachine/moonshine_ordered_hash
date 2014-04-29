@@ -1,5 +1,7 @@
 ## Moonshine Ordered Hash
 
+IMPORTANT: Moonshine Ordered Hash is no longer supported.
+
 Some Moonshine users may have noticed unnecessary restarts of
 services or re-configuration of various resources.
 
@@ -44,3 +46,7 @@ We understand that overriding the Hash class with the ActiveSupport::OrderedHash
 
 Once we are confident that this change works the way we want, we will
 evaluate making it the default in shadow\_puppet itself.
+
+### Copyright
+
+Unless otherwise specified, all content copyright &copy; 2014, [Rails Machine, LLC](http://railsmachine.com)
